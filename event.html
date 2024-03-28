@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventfolio - Event 1</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        header, main, footer {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            color: #fbc531;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .event-details {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="home.html" style="color: inherit;">Eventfolio</a></h1>
+        <p>An archive of events</p>
+    </header>
+
+    <!-- Updated navigation bar with simplified dropdown -->
+    <div class="navbar">
+        <a href="home.html"> Home</a>
+        <div class="dropdown">
+            <a href="eventarchive.html"> Events</a>
+            <div class="dropdown-content">
+                <a href="event.html">Batch Day</a>
+		<a href="event.html">Fresher's Day</a>
+     
+            </div>
+        </div>
+        <a href="submitevent.html" class="sprite addevent"> New</a>
+    </div>
+
+    <main>
+        <section class="event-details">
+            <h2>Batch Day</h2>
+            <p>Date: December 21, 2023</p>
+            <p>Time: 1:00 PM - 7:00 PM</p>
+            <p>Location: SMS Hotel, Coimbatore</p>
+
+            <img src="photo.jpg" alt="Event 1 Thumbnail" style="max-width: 100%; border-radius: 5px; margin-bottom: 20px;">
+
+            <video width="50%" height="80%" autoplay loop auto controls>
+                <source src="batchdayvid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <p>It was the 2nd Batch day. We finally made it happen after a lot of obstacles and intense planning.</p>
+
+            <p>Indeed, it was a great day.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Your Memories are Worth Saving!!</p>
+    </footer>
+
+</body>
+
+</html>

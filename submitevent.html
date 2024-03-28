@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventfolio - Submit an Event</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        header, main, footer {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+         .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .event-details {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            color: #fbc531;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        form {
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            
+            border: 1px solid #3498db;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        textarea {
+            background-color: #ecf0f1; 
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        input[type="file"] {
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #ecf0f1; 
+        }
+
+         .image-preview {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var eventName = document.getElementById('eventName').value;
+            var eventDate = document.getElementById('eventDate').value;
+            var eventTime = document.getElementById('eventTime').value;
+            var eventLocation = document.getElementById('eventLocation').value;
+            var eventDescription = document.getElementById('eventDescription').value;
+
+            if (eventName.trim() === '' || eventDate.trim() === '' || eventTime.trim() === '' ||
+                eventLocation.trim() === '' || eventDescription.trim() === '') {
+                alert('Please fill out all fields');
+                return false;
+            }
+
+           
+            return true;
+        }
+
+        function showImagePreview(input) {
+            var preview = document.getElementById('imagePreview');
+            var files = input.files;
+
+            if (files && files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(files[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 id="eventHeader"><a href="home.html" style="color: inherit; text-decoration: inherit;">Eventfolio</a></h1>
+        <p>An archive of events</p>
+    </header>
+
+
+    <div class="navbar">
+        <a href="home.html"> Home</a>
+        <div class="dropdown">
+            <a href="eventarchive.html"> Events</a>
+            <div class="dropdown-content">
+                <a href="event.html">Batch Day</a>
+        <a href="event.html">Fresher's Day</a>
+     
+            </div>
+        </div>
+        <a href="submitevent.html" class="sprite addevent"> New</a>
+    </div>
+
+    <main>
+        <section>
+            <h2>Submit an Event</h2>
+            <form action="/submit_event" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" required>
+
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+
+                <label for="eventTime">Event Time:</label>
+                <input type="time" id="eventTime" name="eventTime" required>
+
+                <label for="eventLocation">Event Location:</label>
+                <input type="text" id="eventLocation" name="eventLocation" required>
+
+                <label for="eventDescription">Event Description:</label>
+                <textarea id="eventDescription" name="eventDescription" rows="4" required></textarea>
+
+                <!-- New: Image Preview -->
+                <label for="eventMedia">Upload Photos or Videos:</label>
+                <input type="file" id="eventMedia" name="eventMedia[]" accept="image/*, video/*" onchange="showImagePreview(this)">
+                <img id="imagePreview" class="image-preview" alt="Image Preview">
+
+                <input type="submit" value="Submit Event">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Your Memories are Worth Saving!!</p>
+    </footer>
+</body>
+
+</html>

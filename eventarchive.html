@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventfolio - Events Archive</title>
+    
+    <style>
+        body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    margin: 0;
+    background-image: url('back.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Text color */
+	}
+
+        header, main, footer {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); 
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+         .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .event-details {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+
+       
+        h1, h2 {
+            color: #fbc531; 
+        }
+
+        a {
+            color: #3498db; 
+            text-decoration: none;
+        }
+
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .event-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0); 
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .event-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+     <header>
+        <h1><a href="home.html" style="color: inherit;">Eventfolio</a></h1>
+        <p>An archive of events</p>
+    </header>
+
+    <div class="navbar">
+        <a href="home.html"> Home</a>
+        <div class="dropdown">
+            <a href="eventarchive.html"> Events</a>
+            <div class="dropdown-content">
+                <a href="event.html">Batch Day</a>
+        <a href="event.html">Fresher's Day</a>
+     
+            </div>
+        </div>
+        <a href="submitevent.html" class="sprite addevent"> New</a>
+    </div>
+
+
+    <main>
+        <section>
+            <h2>Events Archive</h2>
+            <ul class="event-list">
+                <li class="event-item">
+                    <h3><a href="event.html"style="color: #EF7215;">Fresher's Meeting</a></h3>
+                    <a href="event.html"><img src="event1_1.jpg" alt="Fresher's Meeting Image 1"></a>
+        
+                    <p>The first event at my workplace. Imet a lot off friens and made a lot of connections</p>
+                </li>
+                <li class="event-item">
+                    <h3><a href="event.html"style="color: #EF7215;">Batch Day</a></h3>
+                    <a href="event.html"><img src="photo.jpg" alt="Batch Day Image 1"></a>
+                    
+                    <p>It was our 2nd Batch day. A fun and Sweet Day</p>
+                </li>
+
+               
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Your Memories are Worth Saving!!</p>
+    </footer>
+
+</body>
+
+</html>
